@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/bin/env python3
 
 # This is template intended for python modules
 # Coded By: Lance Freund
@@ -9,18 +9,29 @@
 
 # import urlopen from urllib
 from urllib.request import urlopen
-from itertools import groupby
+import re
+
+def Find(patt, text):
+    patt = re.search(parr, text)
+    if patt:
+        print(patt.group())
+    else:
+        print('Not Found')
 
 # get a copy of file provided as input $1
 with urlopen("http://icarus.cs.weber.edu/~hvalle/cs3030/data/error.log.test") as error_sheet:
     errors=[]
     for err in error_sheet:
-       # sorted(err)
-        line = err.decode('utf-8').split()
-        for file in line:
-            errors.append(line)
-            if line[8] == 'File':
-                box = line[12]
-                print(box)
+        line = err.decode('utf-8')
+        line.split()
+        for i in line:
+                errors.append(line)
+                x = str(line.split())
+                jabber = x
+               # print(type(jabber))
+                part = re.search('/..........................', jabber)
+                if part:
+                    print(part.group())
+
 
 exit(0)
