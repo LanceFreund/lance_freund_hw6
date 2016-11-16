@@ -21,17 +21,43 @@ def Find(patt, text):
 # get a copy of file provided as input $1
 with urlopen("http://icarus.cs.weber.edu/~hvalle/cs3030/data/error.log.test") as error_sheet:
     errors=[]
+    count=0
     for err in error_sheet:
         line = err.decode('utf-8')
-        line.split()
+        para = re.findall(r"'(.*?)'", str(line))
+        para2 = re.findall(r"/(.*?)\s", str(line))
+        parastrip = re.findall(r"/icarus(.*?)\s", str(line))
+        numms = re.findall(r"\d(.)", str(line))
+        for eachP in para2:
+            if parastrip:
+                print("strip")
+            else:
+        #xray = line.split()
+        #part = re.search("'/.*']", maybe)
+        #if part == maybe:
+                count += 1
+        #xr = str(xray)
+        #print(xr):
+                print(eachP)
+    print(count)
+
+"""
         for i in line:
                 errors.append(line)
-                x = str(line.split())
-                jabber = x
-               # print(type(jabber))
-                part = re.search('/..........................', jabber)
+                x = line.split()
+                print(x)
+            
+
+
+
+                #strip = jabber.replace("']", " ")
+               # print(type(jabber)) str.replace(old, new[, max])
+                #part = re.search('/..........................', jabber)
+                part = re.search('/.+', jabber)
                 if part:
-                    print(part.group())
+"""
+
+
 
 
 exit(0)
